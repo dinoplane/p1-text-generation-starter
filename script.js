@@ -41,9 +41,6 @@ const fillers = {
   
     /* global box */
     box.innerText = story;
-
-    let grammar = tracery.createGrammar(spellbook);
-    console.log(grammar.flatten('#origin#'))
   }
   
   /* global clicker */
