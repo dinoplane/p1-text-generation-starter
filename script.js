@@ -1,22 +1,3 @@
-// const fillers = {
-//     adventurer: ["$adventurer and $adventurer", "Geoff"],
-//     pre: ["Fra", "Tro", "Gre", "Pan", "Ast", "Ara"],
-//     post: ["gria", "ston", "gott","-on-the-lee", "ora", "Ara", "uwu"],
-//     people: ["kindly", "meek", "brave", "wise", "sacred", "cherished", "honored", "forgotten", "apathetic", "mystic", "orca"],
-//     item: ["axe", "staff", "book", "cloak", "shield", "club", "sword", "magic gloves", "galvel", "fists", "mace", "potato"],
-//     num: ["two", "three", "eleven", "so many", "too many", "an unsatisfying number of", "barely any", "an unspecified amount of", "surely a satisfactory number of"],
-//     looty: ["gleaming", "valuable", "esteemed", "rare", "exalted", "scintillating", "kinda gross but still usefull", "complete garbage"],
-//     loots: ["coins", "chalices", "ingots", "hides", "victory points", "gems","scrolls", "bananas", "noodles", "goblins", "CS Majors", "college credits"],
-//     baddies: ["orcs", "glubs", "fishmen", "cordungles", "mountain trolls", "college professors", "dragon", "evil $adventurer", "agents of chaos"],
-//     message: ["call", "txt", "post", "decree", "shoutz", "tweets", "choiche", "hearkens", "harkening", "harkenening", "harkenenening", "...wait, no! Come back", "Watermelon"],
-    
-//   };
-
-// 1. predOne used verbOne and objOne
-// 2. objOne used a noun phrase of variable nouns
-// 3. (I'm proud of this one) plural s rule.
-// 4. Colors and patterns. I prevented any selection of same colors (at the cost of the inability to select colors in the same set)
-
 const fillers = {
 
   // Sentence 1 essentials
@@ -24,27 +5,27 @@ const fillers = {
     ship: ["spaceship", "rocket", "starfighter", "mothership"],
     arrival: ["docked", "landed", "arrived", "anchored"],
 
-    verbOne: ["gasped$awe", "marveled", "admired", "appreciated", "gazed$awe"],
+    breathVerb: ["gasped$awe", "marveled", "admired", "appreciated", "gazed$awe"],
     awe: [" in awe", ""],
 
     landscape: ["$color $formation$s, $arranged with $color $pattern $ptype$s"],
     arranged: ["scattered", "littered", "plastered", "peppered", "covered", "sprinkled", "drizzled", "filled", "packed"],
     
     formation: ["cascade", "cliff", "canyon", "mountain", "plateau", "hill", "spire", "dune"],
-    adjOne: ["$color $pattern", "$color1 and $color2 $pattern", "$color"],
+    colorPattern: ["$color $pattern", "$color1 & $color2 $pattern", "$color"],
     color: ["$color1", "$color2"],
     color1: ["pink", "black", "purple"],
     color2: ["white", "orange", "green"],
     pattern: ["polka-dotted", "striped", "checkered", "spotted", "speckled"],
 
     // Sentence 2 essentials
-    position: ["Resting", "Afloat", "Grounded", "Spinning", "Standing"],
+    position: ["Resting", "Float", "Grounded", "Spinning", "Standing"],
     size: ["tiny", "small", "average-sized", "large", "gigantic"],
     building: ["tower", "skyscraper", "cottage", "radar", "amusement park", "university"],
 
-    objOne: ["$noun", "$noun$nounphrase and $noun"],
-    noun: ["$adjOne $animal$s", "$plant"],
-    nounphrase: [", $noun$nounphrase", ""],
+    objOne: ["$org$orgList and $org"],
+    org: ["$colorPattern $animal$s", "$plant"],
+    orgList: [", $org$orgList", ", $org$orgList", ""],
     
     animal: ["cat", "hippo", "hyena", "horse", "pig", "goat", "cow", "seal", "penguin"],
     plant: ["$product $ptype$s", "$ptype$s of $element"],
@@ -52,18 +33,33 @@ const fillers = {
     ptype: ["tree", "shrub", "flower", "pitcher", "weed", "pine", "fern", "mushroom", "palm"],
     product: ["$fruit", "$element"],
     fruit: ["pineapple", "apple", "strawberry", "banana", "kiwi", "blueberry", "lemon", "grape", "mango"],
-    element:["fire", "ice", "steel", "lightning", "earth", "poison", "water", "shadow", "light", "wind"],
+    element:["fire", "ice", "steel", "lightning", "spirit", "poison", "glass", "shadow", "light", "wind"],
 
-    // 3rd sentence
+    // 3rd sentence essentials
+    interest: ["$lightAdj light", "$darkAdj shadow"],
+    lightAdj: ["sparkling", "gleaming", "shimmering", "glowing", "beaming", "holy", "$greyAdj"],
+    darkAdj: ["looming", "menacing", "gloomy", "obscure", "daunting", "sinister", "$greyAdj"],
+    greyAdj: ["radiating", "condescending", "mysterious", "magnificent"],
 
+    relativePos: ["atop", "above", "at the base of", "below", "drowning"],
+
+    interestVerb: ["piqued", "caught"],
+    interestObj: ["eyes", "interest", "attention"],
+
+    travelVerb: ["ventured off", "set forth on my $travelType", "started my $travelType"],
+    travelType: ["journey", "hike", "walk"],
+
+    pet: ["$size $colorPattern $animal", "$color $product $ptype"],
+
+    petname: ["Chloe", "Max", "Morbius", "Gus", "Tina", "Zoey", "AMOGUS", "Rick"]
   }
   
   
-  const template = `As our $ship $arrival on the port, I $verbOne at the $landscape. 
+  const template = `As our $ship $arrival on the port, I $breathVerb at the $landscape. 
 
-  $position in the center of the shrubbery was a $size $building, surrounded by $objOne. 
+  $position amid the shrubbery was a $size $building, surrounded by $objOne. 
 
-  (Something interesting) (did something) my interest, so I set off to 
+  A $interest $relativePos the building $interestVerb my $interestObj, so I $travelVerb with my $pet named $petname.
   `;
   
 
@@ -89,9 +85,6 @@ const fillers = {
   
     /* global box */
     box.innerText = story;
-
-    let grammar = tracery.createGrammar(spellbook);
-    console.log(grammar.flatten('#origin#'))
   }
   
   /* global clicker */
