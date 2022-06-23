@@ -18,41 +18,52 @@
 // 4. Colors and patterns. I prevented any selection of same colors (at the cost of the inability to select colors in the same set)
 
 const fillers = {
+
+  // Sentence 1 essentials
     s: ["s"],
     ship: ["spaceship", "rocket", "starfighter", "mothership"],
     arrival: ["docked", "landed", "arrived", "anchored"],
 
-    predOne: [""],
     verbOne: ["gasped$awe", "marveled", "admired", "appreciated", "gazed$awe"],
     awe: [" in awe", ""],
 
-    landscape: ["$color $formation$s"],
-    formation: ["cascade", "cliff", "canyon", "mountain"],
-
-
-
-    objOne: ["$noun", "$noun$nounphrase, and $noun"],
-    adjOne: ["$color, $pattern", "$color1 and $color2 $pattern", "$color"],
+    landscape: ["$color $formation$s, $arranged with $color $pattern $ptype$s"],
+    arranged: ["scattered", "littered", "plastered", "peppered", "covered", "sprinkled", "drizzled", "filled", "packed"],
+    
+    formation: ["cascade", "cliff", "canyon", "mountain", "plateau", "hill", "spire", "dune"],
+    adjOne: ["$color $pattern", "$color1 and $color2 $pattern", "$color"],
     color: ["$color1", "$color2"],
     color1: ["pink", "black", "purple"],
     color2: ["white", "orange", "green"],
-    pattern: ["polka-dotted", "striped", "checkered", "spotted"],
+    pattern: ["polka-dotted", "striped", "checkered", "spotted", "speckled"],
 
+    // Sentence 2 essentials
+    position: ["Resting", "Afloat", "Grounded", "Spinning", "Standing"],
+    size: ["tiny", "small", "average-sized", "large", "gigantic"],
+    building: ["tower", "skyscraper", "cottage", "radar", "amusement park", "university"],
 
-    noun: ["the $adjOne $animal", "the $plant"],
+    objOne: ["$noun", "$noun$nounphrase and $noun"],
+    noun: ["$adjOne $animal$s", "$plant"],
     nounphrase: [", $noun$nounphrase", ""],
     
-    animal: ["cat", "pony", "dog", "mouse", "pig", "goat", "cow"],
-    plant: ["$product $ptype", "$ptype of $fruit$s", "$ptype of $element"],
+    animal: ["cat", "hippo", "hyena", "horse", "pig", "goat", "cow", "seal", "penguin"],
+    plant: ["$product $ptype$s", "$ptype$s of $element"],
     
-    ptype: ["tree", "shrub", "flower", "pitcher"],
+    ptype: ["tree", "shrub", "flower", "pitcher", "weed", "pine", "fern", "mushroom", "palm"],
     product: ["$fruit", "$element"],
-    fruit: ["milk", "apple", "pear", "banana"],
-    element:["fire", "ice", "poison", "electricity"]
+    fruit: ["pineapple", "apple", "strawberry", "banana", "kiwi", "blueberry", "lemon", "grape", "mango"],
+    element:["fire", "ice", "steel", "lightning", "earth", "poison", "water", "shadow", "light", "wind"],
+
+    // 3rd sentence
+
   }
   
   
-  const template = `As our $ship $arrival on the port, I $verbOne at the $landscape.
+  const template = `As our $ship $arrival on the port, I $verbOne at the $landscape. 
+
+  $position in the center of the shrubbery was a $size $building, surrounded by $objOne. 
+
+  (Something interesting) (did something) my interest, so I set off to 
   `;
   
 
@@ -78,6 +89,9 @@ const fillers = {
   
     /* global box */
     box.innerText = story;
+
+    let grammar = tracery.createGrammar(spellbook);
+    console.log(grammar.flatten('#origin#'))
   }
   
   /* global clicker */
