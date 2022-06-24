@@ -12,7 +12,8 @@ const fillers = {
     arranged: ["scattered", "littered", "plastered", "peppered", "covered", "sprinkled", "drizzled", "filled", "packed"],
     
     formation: ["cascade", "cliff", "canyon", "mountain", "plateau", "hill", "spire", "dune"],
-    colorPattern: ["$color $pattern", "$color1 & $color2 $pattern", "$color"],
+    colorPattern: ["$color $pattern", "$color & $color $pattern", "$color"],
+
     color: ["$color1", "$color2"],
     color1: ["pink", "black", "purple"],
     color2: ["white", "orange", "green"],
@@ -21,7 +22,7 @@ const fillers = {
     // Sentence 2 essentials
     position: ["Resting", "Float", "Grounded", "Spinning", "Standing"],
     size: ["tiny", "small", "average-sized", "large", "gigantic"],
-    building: ["tower", "skyscraper", "cottage", "radar", "amusement park", "university"],
+    building: ["tower", "skyscraper", "cottage", "radar", "chapel", "dome"],
 
     objOne: ["$org$orgList and $org"],
     org: ["$colorPattern $animal$s", "$plant"],
@@ -91,3 +92,21 @@ const fillers = {
   clicker.onclick = generate;
   
   generate();
+
+
+// IGNORE BELOW I want to try this later
+
+// color: ["$red$blue$yellow"],
+
+// red: ["$r", "$o"],
+// blue: ["b", "o"],
+// yellow: ["y", "o"],
+
+// ooo: ["white"],
+// roo: ["red"],
+// rbo: ["purple", "lavender", "indigo"],
+// roy: ["orange"],
+// ooy: ["yellow"],
+// oby: ["green"],
+// obo: ["blue"],
+// rby: ["black"], Figure out how to do this OwO Basically Encode Precedence
