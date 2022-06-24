@@ -24,4 +24,4 @@ This sentence is the beef of this project. Particularly the $objOne rule (line 2
 Like the other sentences, sentence 3 reuses the descriptor nonterinals from before. This sentence is similar to sentence 1, but I played around with some semantics (For instance (line 46), does "piqued my attention" work?). I did this for the interest and the venturing (line 49) and played around with the journeyTypes(hike vs a journey?). 
 
 
-Made by Arrian Chi using [https://github.com/julinas/p1-text-generation-starter] as template
+Made by Arrian Chi using https://github.com/julinas/p1-text-generation-starter as template
